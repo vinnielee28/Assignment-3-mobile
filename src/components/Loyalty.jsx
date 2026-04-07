@@ -9,11 +9,11 @@ export default function App() {
     return (
         <PaperProvider>
             <View style={styles.container}>
-                <Text>Hello from Rich</Text>
+                <Text>Hi from Rich</Text>
                 <Portal>
-                    <Dialog visible={visible} onDismiss={() => setVisible(false)}>
+                    <Dialog visible={visible} onDismiss={() => setVisible(false)} style={{ height: '80%' }}>
                         <Dialog.Title>Order Bot</Dialog.Title>
-                        <Dialog.Content>
+                        <Dialog.Content style={{ flex: 1 }}>
                             <ChatView />
                         </Dialog.Content>
                         <Dialog.Actions>

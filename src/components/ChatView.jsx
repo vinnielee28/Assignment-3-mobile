@@ -4,7 +4,7 @@ import MessageBubble from './MessageBubble';
 import InputBar from './InputBar';
 import { handleInput } from '../Order';
 
-export default function ChatView(){
+export default function ChatView() {
   const [messages, setMessages] = useState([]);
   const [inputBarText, setInputBarText] = useState('');
   const scrollViewRef = useRef(null);
@@ -38,12 +38,11 @@ export default function ChatView(){
 
   const sendMessage = () => {
     if (inputBarText.trim().length === 0) return;
-
     // Correct way to update state: create a NEW array
     let newMessages = [{ direction: 'right', text: inputBarText }];
     const aResponse = handleInput(inputBarText);
-    for(const message of aResponse){
-      newMessages.push({direction: "left", text: message});
+    for (const message of aResponse) {
+      newMessages.push({ direction: "left", text: message });
     }
     setMessages([...messages, ...newMessages]);
     setInputBarText('');
@@ -51,26 +50,26 @@ export default function ChatView(){
 
   return (
     <View style={styles.outer}>
-      <KeyboardAvoidingView 
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'} 
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={{ flex: 1 }}
       >
-        <ScrollView 
-          ref={scrollViewRef} 
+        <ScrollView
+          ref={scrollViewRef}
           style={styles.messages}
           onContentSizeChange={() => scrollToBottom()} // Auto-scrolls when new content arrives
         >
           {messages.map((msg, index) => (
-            <MessageBubble 
-              key={index} 
-              direction={msg.direction} 
-              text={msg.text} 
+            <MessageBubble
+              key={index}
+              direction={msg.direction}
+              text={msg.text}
             />
           ))}
         </ScrollView>
 
-        <InputBar 
-          onSendPressed={sendMessage} 
+        <InputBar
+          onSendPressed={sendMessage}
           onSizeChange={() => scrollToBottom(false)}
           onChangeText={setInputBarText}
           text={inputBarText}

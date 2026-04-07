@@ -43,14 +43,16 @@ export default function MessageBubble({direction, text}) {
   },
 
   messageBubbleTextLeft: {
-    color: 'black'
+    color: 'black',
+    fontWeight: 'bold'
   },
 
   messageBubbleRight: {
-    backgroundColor: '#66db30'
+    backgroundColor: '#c58fff'
   },
 
   messageBubbleTextRight: {
-    color: 'white'
-  },    
+    color: '20004d',
+    fontWeight: 'bold'
+  },
   })

@@ -18,7 +18,9 @@ export default function InputBar({ text, onChangeText, onSizeChange, onSendPress
                 style={styles.sendButton} 
                 onPress={() => onSendPressed()}
             >
-                <Text style={{ color: 'white' }}>Send</Text>
+                <Text style={{ color: '#20004d', 
+                    fontWeight: 'bold'
+                }}>Send</Text>
             </TouchableHighlight>
         </View>
     );
@@ -48,6 +50,7 @@ const styles = StyleSheet.create({
         marginLeft: 5,
         paddingRight: 15,
         borderRadius: 5,
-        backgroundColor: '#66db30'
+        backgroundColor: '#c58fff'
     },
+
 });
